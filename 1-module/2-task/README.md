@@ -34,5 +34,3 @@ function sayHello() {
 
 sayHello();
 ```
-
-
