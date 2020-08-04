@@ -7,10 +7,9 @@ function sumSalary(salaries) {
   let sum = 0;
 
   for (let prop in salaries) {
-    if (typeof salaries[prop] !== 'number') {
-      salaries[prop] = 0;;
+    if (typeof salaries[prop] === 'number') {
+      sum += salaries[prop];
     }
-    sum += salaries[prop];
   }
 
   return sum;
