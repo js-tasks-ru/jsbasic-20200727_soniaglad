@@ -4,18 +4,15 @@ export default class ProductCard {
   constructor(product) {
     this.product = product;
     this.elem = this.createProductCard(product);
-    this.productAdd();
+    this.productAddOnClick();
   }
 
-  // функция по созданию карточки
   createProductCard(product) {
 
-    // создаем контейнер карточки товара
     let card = document.createElement('div');
     card.classList.add('card');
 
 
-    // создаем верхний блок карточки
     let cardTop = document.createElement('div');
     cardTop.classList.add('card__top');
     card.appendChild(cardTop);
@@ -32,7 +29,6 @@ export default class ProductCard {
     cardTop.appendChild(cardPrice);
 
 
-    // создаем нижний блок карточки
     let cardBody = document.createElement('div');
     cardBody.classList.add('card__body');
     card.appendChild(cardBody);
@@ -54,7 +50,7 @@ export default class ProductCard {
     return card;
   }
 
-  productAdd() {
+  productAddOnClick() {
     let container = this.elem;
 
     container.addEventListener('click', (event) => {

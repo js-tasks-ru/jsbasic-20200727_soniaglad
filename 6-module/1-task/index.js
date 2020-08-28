@@ -32,16 +32,13 @@ export default class UserTable {
   constructor(rows) {
     this.rows = rows;
     this.elem = this.createTable(rows);
-    this.removeRow();
+    this.hideRowOnClick();
   }
 
   createTable(rows) {
 
-    // table
     let table = document.createElement('table');
-    // document.body.appendChild(table);
 
-    // table head
     let tableHead = document.createElement('thead');
     table.appendChild(tableHead);
 
@@ -56,7 +53,6 @@ export default class UserTable {
       headCell.innerHTML = data;
     }
 
-    // table body  
     let tableBody = document.createElement('tbody');
     table.appendChild(tableBody);
 
@@ -65,14 +61,12 @@ export default class UserTable {
       tableBody.appendChild(row);
       row.classList.add('row');
 
-      // table cells -> не нравится < 5
       for (let j = 0; j < tableHeadData.length; j++) {
         let bodyCell = document.createElement('td');
         row.appendChild(bodyCell);
 
       }
 
-      // заполняем из свойств объектов
       let name = tableBody.rows[i].cells[0];
       name.innerHTML = rows[i].name;
 
@@ -92,11 +86,9 @@ export default class UserTable {
     return table;
   }
 
-  removeRow() {
-    // контейнер для обработчика (делегирование)
+  hideRowOnClick() {
     let container = this.elem.querySelector('tbody');
 
-    // вешаем обработчик на контейнер
     container.addEventListener('click', (event) => {
       if (event.target.className != 'remove-button') return;
       let row = event.target.closest('.row');
