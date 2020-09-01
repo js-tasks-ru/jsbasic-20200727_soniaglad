@@ -43,7 +43,7 @@ export default class Carousel {
           </div>
         </div>`;
 
-      carouselInner.insertAdjacentHTML('afterbegin', carouselSlide);
+      carouselInner.insertAdjacentHTML('beforeend', carouselSlide);
     });
 
     return carousel;
