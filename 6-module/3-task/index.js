@@ -83,17 +83,18 @@ export default class Carousel {
 
   productAddOnClick() {
     let container = this.elem.querySelector('.carousel__inner');
-    let slide = this.slides[0]; // это НЕ правильно, но тесты проходит
 
     container.addEventListener('click', (event) => {
+      let slide = event.target.closest('.carousel__slide');
+
       if (event.target.closest(".carousel__button")) {
-        let addToCartEvent = new CustomEvent('product-add', {
-          detail: slide.id,
+        let addToCartEvent = new CustomEvent("product-add", {
+          detail: slide.dataset.id,
           bubbles: true
         });
-
         this.elem.dispatchEvent(addToCartEvent);
       }
     });
   }
+
 }
